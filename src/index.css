@@ -1,0 +1,34 @@
+html {
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #834db7;
+  background-color: #d8d8d8;
+}
+img {
+  width: 100%;
+}
+h2 {
+  font-size: 1.8rem;
+  color: #7faaea;
+  padding: 0;
+  margin: 0;
+}
+h3 {
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+}
+p {
+  font-size: 1.4rem;
+  color: #34283f;
+  padding: 0;
+  margin: 0;
+}
