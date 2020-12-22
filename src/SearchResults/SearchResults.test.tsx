@@ -19,7 +19,9 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 describe('<SearchResults />', () => {
+  afterEach(() => cache.clear())
   afterEach(cleanup)
+
   it('should render the page', async () => {
     const { findByText } = renderComponent()
     const component = await findByText('Search Results')
@@ -55,7 +57,7 @@ describe('<SearchResults />', () => {
   })
 
   it('should render the release year', async () => {
-    const { findAllByText, container } = renderComponent()
+    const { findAllByText } = renderComponent()
     const release = await findAllByText('Released: 1960')
 
     expect(release[0]).toBeInTheDocument()

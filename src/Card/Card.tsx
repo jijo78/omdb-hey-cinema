@@ -44,8 +44,10 @@ export const CardBody = styled('section')`
   position: relative;
   padding: 1rem;
   grid-column: 2;
-  div {
-    display: flex;
-    justify-content: space-between;
-  }
+`
+export const CardFooter = styled('div')`
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 30%;
 `

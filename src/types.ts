@@ -5,6 +5,7 @@ export interface ResultList {
   Country: string
   DVD: string
   Director: string
+  Error?: string
   Genre: string
   Language: string
   Metascore: string

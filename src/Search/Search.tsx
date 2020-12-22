@@ -32,7 +32,7 @@ export const Search: FC<Props> = () => {
 
   const { data, error, isValidating } = useSWR(
     shouldFetch
-      ? `http://www.omdbapi.com/?&apikey=${config.api}&type=movie&s=${term}&page=1-20`
+      ? `https://www.omdbapi.com/?&apikey=${config.api}&type=movie&s=${term}&page=1-20`
       : null,
     fetchData,
     {
@@ -40,6 +40,7 @@ export const Search: FC<Props> = () => {
       revalidateOnFocus: false,
     }
   )
+  console.log('data: ', data)
   if (data && data.errors) {
     setIsValidating(isValidating)
     setShouldFetch(false)

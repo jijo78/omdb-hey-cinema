@@ -37,7 +37,6 @@ export const resultList: ResultList = {
   imdbVotes: '29,733',
 }
 
-export const resultsListtNoData: ResultList[] = []
 export const resultsList: ResultsList[] = [
   {
     Poster:

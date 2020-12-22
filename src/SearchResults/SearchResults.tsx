@@ -5,7 +5,7 @@ import useSWR from 'swr'
 import { Error } from '../Error'
 import { ResultsList } from '../types'
 
-import { Cards, Card, CardBody, CardImgWrapper } from '../Card'
+import { Cards, Card, CardBody, CardImgWrapper, CardFooter } from '../Card'
 
 interface Props {
   results: ResultsList[]
@@ -24,7 +24,7 @@ export const SearchResults: FC<Props> = ({ results }) => {
 
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const { data, error } = useSWR(
-              `http://www.omdbapi.com/?&apikey=${config.api}&i=${result.imdbID}`,
+              `https://www.omdbapi.com/?&apikey=${config.api}&i=${result.imdbID}`,
               fetchData
             )
 
@@ -33,18 +33,18 @@ export const SearchResults: FC<Props> = ({ results }) => {
             }
 
             return (
-              <Card data-testid="result-list" key={i}>
+              <Card data-testid="result-list" key={result.imdbID}>
                 <CardImgWrapper>
                   <img alt={result.Title} src={result.Poster} />
                 </CardImgWrapper>
 
                 <CardBody>
                   <h2> {data && data.Title}</h2>
-                  <div>
+                  <CardFooter>
                     <h3>Released: {data && data.Year}</h3>
 
                     <p>Rating: {data && Math.ceil(data.imdbRating)}</p>
-                  </div>
+                  </CardFooter>
                 </CardBody>
               </Card>
             )
