@@ -16,7 +16,6 @@ const Search = styled('section')`
 
 const SearchForm = styled('form')`
   position: relative;
-  width: 100%;
 `
 const SearchLegend = styled('legend')`
   position: absolute !important;
@@ -31,19 +30,20 @@ const SearchLabel = styled('label')`
 
 const SearchInput = styled('input')`
   position: relative;
-  color: #333;
-  width: 97%;
+  color: #34283f;
+  width: 100%;
   text-align: center;
+  box-sizing: border-box;
   padding: 2rem;
   font-size: 2rem;
   border: 0 none;
   border-radius: 1rem;
   overflow: hidden;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 3px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.2rem 1rem 0.3rem;
 
   &::placeholder {
-    color: #333;
+    color: #34283f;
   }
 `
 
@@ -54,7 +54,7 @@ const Button = styled('button')`
   cursor: pointer;
   position: absolute;
   top: 25%;
-  right: 0;
+  right: 2%;
   background-color: white;
   background: #ffffff url(${magnifierSvg}) no-repeat 90%;
 

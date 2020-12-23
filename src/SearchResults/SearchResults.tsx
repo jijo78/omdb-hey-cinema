@@ -41,9 +41,17 @@ export const SearchResults: FC<Props> = ({ results }) => {
                 <CardBody>
                   <h2> {data && data.Title}</h2>
                   <CardFooter>
-                    <h3>Released: {data && data.Year}</h3>
+                    <p>
+                      Released:<span>{data && data.Year}</span>
+                    </p>
 
-                    <p>Rating: {data && Math.ceil(data.imdbRating)}</p>
+                    <p>
+                      Rating:{' '}
+                      <span>
+                        {' '}
+                        {data && data.imdbRating !== 'N/A' ? Math.ceil(data.imdbRating) : 'N/A'}
+                      </span>
+                    </p>
                   </CardFooter>
                 </CardBody>
               </Card>
