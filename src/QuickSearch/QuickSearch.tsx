@@ -31,7 +31,7 @@ const SearchLabel = styled('label')`
 
 const SearchInput = styled('input')`
   position: relative;
-  color: #ccc;
+  color: #333;
   width: 97%;
   text-align: center;
   padding: 2rem;
@@ -43,7 +43,7 @@ const SearchInput = styled('input')`
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 3px;
 
   &::placeholder {
-    color: #ccc;
+    color: #333;
   }
 `
 
