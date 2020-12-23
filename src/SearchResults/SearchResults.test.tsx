@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, cleanup } from '@testing-library/react'
+import { render, cleanup, waitFor } from '@testing-library/react'
 
 import '@testing-library/jest-dom/extend-expect'
 import { SearchResults } from './SearchResults'
@@ -25,41 +25,51 @@ describe('<SearchResults />', () => {
   it('should render the page', async () => {
     const { findByText } = renderComponent()
     const component = await findByText('Search Results')
-    expect(component).toBeInTheDocument()
+
+    await waitFor(() => {
+      expect(component).toBeInTheDocument()
+    })
   })
   it('should render movie title', async () => {
     const { findByText } = renderComponent()
     const component = await findByText('Peeping Tom')
-    expect(component).toBeInTheDocument()
+    await waitFor(() => {
+      expect(component).toBeInTheDocument()
+    })
   })
   it('should render a list of results ', async () => {
     const { queryAllByTestId } = renderComponent()
 
     const li = queryAllByTestId('result-list')
-
-    expect(li.length).toBe(3)
+    await waitFor(() => {
+      expect(li.length).toBe(3)
+    })
   })
 
   it('should render movie card image', async () => {
     const { findByAltText } = renderComponent()
     const img = await findByAltText('Peeping Tom')
-    expect(img).toHaveAttribute(
-      'src',
-      'https://m.media-amazon.com/images/M/MV5BZjM3ZTAzZDYtZmFjZS00YmQ1LWJlOWEtN2I4MDRmYzY5YmRlL2ltYWdlXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_SX300.jpg'
-    )
+
+    await waitFor(() => {
+      expect(img).toHaveAttribute(
+        'src',
+        'https://m.media-amazon.com/images/M/MV5BZjM3ZTAzZDYtZmFjZS00YmQ1LWJlOWEtN2I4MDRmYzY5YmRlL2ltYWdlXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_SX300.jpg'
+      )
+    })
   })
   it('should render the rating', async () => {
-    const { findAllByText, container } = renderComponent()
-    console.log('container: ', container.innerHTML)
+    const { findAllByText } = renderComponent()
     const rating = await findAllByText('Rating: 8')
-
-    expect(rating[0]).toBeInTheDocument()
+    await waitFor(() => {
+      expect(rating[0]).toBeInTheDocument()
+    })
   })
 
   it('should render the release year', async () => {
     const { findAllByText } = renderComponent()
     const release = await findAllByText('Released: 1960')
-
-    expect(release[0]).toBeInTheDocument()
+    await waitFor(() => {
+      expect(release[0]).toBeInTheDocument()
+    })
   })
 })
